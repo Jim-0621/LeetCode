@@ -7,7 +7,7 @@ public class h1 {
     public static void main(String[] args) {
         int[] nums = {3,2,4};
         int target = 6;
-        int[] res = new Solution().twoSum(nums,target);
+        int[] res = new Solution1().twoSum(nums,target);
         System.out.println(Arrays.toString(res));
         // System.out.println(res); 这样子返回的是数组的首地址
     }
@@ -15,9 +15,9 @@ public class h1 {
 
 
 
-class Solution {
+class Solution1 {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> hashtable = new HashMap<>();
         for (int i = 0; i < nums.length; ++i) {
             if (hashtable.containsKey(target - nums[i])) {
                 return new int[]{hashtable.get(target - nums[i]), i};
