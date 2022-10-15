@@ -1,0 +1,8 @@
+Map<Character,Character> map = new HashMap<>(){{ put('{','}') }};
+    .containsKey(key)
+    .get(key)  返回key对应的value
+    .put(key, value)   添加key以及对应的value
+
+LinkedList<Character> stack = new LinkedList<>() {{ add('?'); }};
+    .addLast(key)    把key添加到链表尾部
+    .removeLast()   返回链表最后的元素
