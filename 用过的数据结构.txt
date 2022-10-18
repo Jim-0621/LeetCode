@@ -5,4 +5,4 @@ Map<Character,Character> map = new HashMap<>(){{ put('{','}') }};
 
 LinkedList<Character> stack = new LinkedList<>() {{ add('?'); }};
     .addLast(key)    把key添加到链表尾部
-    .removeLast()   返回链表最后的元素
+    .removeLast()   移出并返回链表最后的元素
