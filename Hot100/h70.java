@@ -13,7 +13,6 @@ public class h70 {
 }
 
 class Solution70 {
-
     public int climbStairs(int n) {
         int a = 0, b = 1, c = 0; // 默认需要1次
         for (int i = 1; i <= n; i++) {
