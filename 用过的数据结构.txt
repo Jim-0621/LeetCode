@@ -3,6 +3,15 @@ Map<Character,Character> map = new HashMap<>(){{ put('{','}') }};
     .get(key)  返回key对应的value
     .put(key, value)   添加key以及对应的value
 
+Set<ListNode> seen = new HashSet<ListNode>();
+    .add(head)  Returns:true if this set did not already contain the specified element
+
+HashMap就是key-value模型。
+HashSet中只存储了key。
+key都不可以重复
+
+
 LinkedList<Character> stack = new LinkedList<>() {{ add('?'); }};
     .addLast(key)    把key添加到链表尾部
     .removeLast()   移出并返回链表最后的元素
+

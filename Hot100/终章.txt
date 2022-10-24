@@ -1,0 +1,3 @@
+本来是打算昨晚LeetCode上面hot100题的，但是随着做的时候发现有个叫代码随想录的人整理的挺好的
+后面决定跟着他的分类做题
+https://programmercarl.com/
