@@ -17,14 +17,14 @@ class Solution20 {
     // java中单引号里面只能放一个字母或数字或符号;java中的双引号里面是0到多个字符构成。
     // 建立哈希表 dic 构建左右括号对应关系
     // ?是为了防止栈为空时.pop()操作报错
-    private static final Map<Character,Character> map = new HashMap<>(){{
+    private static final Map<Character,Character> map = new HashMap<Character,Character>(){{
         put('{','}'); put('[',']'); put('(',')'); put('?','?');
     }};
     public boolean isValid(String s) {
         // .charAt(index) Returns the character (Unicode code point) at the specified index
         if(s.length() > 0 && !map.containsKey(s.charAt(0))) return false;
         // ?是为了防止链表为空时.removeLast()操作报错，与上同理
-        LinkedList<Character> stack = new LinkedList<>() {{ add('?'); }};
+        LinkedList<Character> stack = new LinkedList<Character>() {{ add('?'); }};
         for(Character c : s.toCharArray()){
             // .addLast(key) 把key添加到链表尾部
             if(map.containsKey(c)) stack.addLast(c);
