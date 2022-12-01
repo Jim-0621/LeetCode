@@ -6,7 +6,7 @@ public class test {
 //        String[] parts = s.split(",");
 //        int n = (int)(f(32)/f(16));
 //        System.out.println(n);
-        System.out.println(f(33));
+        System.out.println(f(10));
     }
     public static double f(int n){
         if(n == 1 ){
