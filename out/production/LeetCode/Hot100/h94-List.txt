@@ -1,0 +1,84 @@
+List<E>集合接口特征、ArrayList与LinkedList使用注意及特征
+
+
+一、List集合接口特征
+特征：有序，可重复
+有序：添加顺序和存储顺序一致
+可重复：相同元素可以同时添加
+List<E>接口下的实现类，存在一定的下标操作机制
+	ArrayList<E> 底层数组形式操作，可以通过下标直接访问
+	LinkedList<E> 底层是一个双向链表结构，下标 ==> 计数器
+List里的数据类型E可以是Object、String、Integer，不能为double、long等基本数据类型（可用Object代替）。
+
+方法
+增:
+	add(E e);
+		List接口下，当前方法是添加元素到集合的末尾，尾插法
+	addAll(Collection<? extends E> c);
+		List接口下，当前方法是添加另一个集合到当前集合末尾，要求添加的
+		集合中保存的元素和当前集合保存元素一致，或者说是当前集合保存元
+		素的子类
+	add(int index, E e);
+		在指定的下标位置，添加指定元素
+	addAll(int index, Collection<? extends E> c);
+		在指定的下标位置，添加指定的集合，集合要求同上一个addAll方法
+删:
+	void clear();
+		清空整个集合
+	remove(Object obj);
+		删除集合中的指定元素
+	removeAll(Colletion<?> c);
+		删除两个集合的交集
+	retainAll(Colletion<?> c);
+		保留两个集合的交集
+
+	E remove(int index);
+		删除集合中指定下标的元素。返回值是被删除的元素
+改:
+	E set(int index, E e);
+		使用指定元素替换指定下标index的元素，返回值是被替换掉的元素。
+查:
+	int size();
+		有效元素个数
+	boolean isEmpty();
+		判断当前集合是否为空
+	boolean contains(Object obj);
+	boolean containsAll(Collection<?> c);
+
+	int indexOf(Object obj);
+		找出指定元素在集合中的第一次出现位置
+	int lastIndexOf(Object obj);
+		找出指定元素在集合中最后一次出现位置
+	E get(int index);
+		获取指定下标的元素
+	List<E> subList(int fromIndex, int endIndex);
+		获取当前集合的子集合
+		【特征】
+			获取数据的范围是 fromIndex <= n < endIndex
+			要头不要尾
+
+二、ArrayList增删慢、查询快
+1.增删慢：
+    1. 增加元素有可能出现调用grow方法，grow需要进行数组的扩容操作，操作过程中需要大量的移动和拷贝过程，浪费时间
+	2. 在某一个指定位置添加元素，会导致从指定位置开始，之后的元素整体向后移动，涉及移动复制操作，浪费时间。
+	3. 按照ArrayList可变长数组要求，删除元素之后，之后的内容都需要整体向前移动。
+
+2.查询快：
+Array底层保存的元素就是数组，通过下标方式访问，可以直接获取对应的元素内容，非常高效
+
+3.特征
+数组形式的操作方式，查询效率高，但是删除，增加效率低。
+数组:
+	Object类型数组
+
+三、LinkedList增删快、查询慢
+1.增删快：
+增删只要保存数据首地址不丢失，赋值完成，添加删除搞定，高效，不涉及数据的移动
+2.查询慢：
+查询需要从链表开始位置，一个个节点跳转查询。
+3.特征
+1. 存储数据，非连续空间。
+2. 数据之间通过引用连接，方便遍历和使用
+3. 遍历效率较低，数据非连续空间存储，需要通过引用跳转过程来完成
+4. 删除插入操作效率高，但是注意地址的转移和保存问题。
+5. LinkedList链表当中的操作其实大部分都是和C语言指针一个概念
