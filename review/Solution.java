@@ -13,7 +13,7 @@ class Solution {
         for (Character i : sToChar) {
             if (i == ']') {
                 List<Character> tmp = new ArrayList<>();
-                while (stk.peek() != '[') {
+                while (!stk.isEmpty() && stk.peek() != '[') {
                     tmp.add(stk.pop());
                 }
                 stk.pop();
